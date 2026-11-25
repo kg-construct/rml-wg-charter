@@ -75,7 +75,7 @@
       <h1 id="title">DRAFT RDF Mapping Language (RML) Working Group Charter</h1>
       <!-- delete PROPOSED after AC review completed -->
 
-      <p class="mission">The <strong>mission</strong> of the <a href="">RDF Mapping Language (RML) Working Group</a> is to define an extension of the R2RML language to allow generation of RDF from other data formats beyond relational databases.</p>
+      <p class="mission">The <strong>mission</strong> of the <a href="">RDF Mapping Language (RML) Working Group</a> is to define a declarative language for constructing RDF graphs from heterogeneous data sources, building on the foundational concepts of R2RML.</p>
       <!-- the link to the group is ALWAYS that available from https://www.w3.org/groups/wg or https://www.w3.org/groups/ig because each group page can then point to a different homepage, but not the other way around. -->
 
       <div class="noprint">
@@ -160,7 +160,11 @@
         <p> The scope of this Working Group is to define a declarative language for the construction of RDF graphs from heterogeneous data sources. Building on the foundational concepts of R2RML, RML provides a complementary specification, designed to support mappings from a wide variety of (semi-)structured data formats into RDF. Beyond data formats, RML also provides support for new features: i) flexible declaration of input and output formats; ii) declarative description of transformation functions; iii) enable the generation of RDF Collections & Containers; and iv) declaration of views over any kind of data format for complex data pipelines.   </p>
         
         <p> The Knowledge Graph Construction Community Group has identified, in <a href="https://w3id.org/rml/portal">its final report</a>, a set of modules that together constitute the complete RML specification. Each module comprises a distinct set of RDF-related features and can be implemented independently. 
-          The Working Group may however reconsider this and proceed differently from the Community Group's proposal. The Working Group will also consider <a href="https://www.w3.org/2021/Process-20211102/#allow-new-features">allowing new features</a> in these recommendations, according to <a href="https://www.w3.org/2021/Process-20211102/#revised-rec-features">Section 6.3.11.4 of the W3C process</a>, in order to render future evolutions easier.</p>
+        The Working Group will also consider
+        <a href="https://www.w3.org/policies/process/20250818/#allow-new-features">allowing new features</a>
+        in these recommendations, according to
+        <a href="https://www.w3.org/policies/process/20250818/#revised-rec-features">Section 6.3.10.3 of the W3C process</a>,
+        in order to render future evolutions easier.</p>
 
         <p>The group MUST ensure that any R2RML mapping can be expressed as a valid RML mapping, and that any RML mapping restricted to the R2RML feature set can be translated back into a valid R2RML mapping.</p>
 
@@ -170,7 +174,14 @@
             <p>The following features are out of scope, and will not be addressed by this Working group.</p>
 
             <ul class="out-of-scope">
-              <li>Adding extensions or new features to R2RML or Direct Mapping. These two recommendations will remain stable, without incorporating new features or deprecating any of the existing ones. </li>
+              <li>
+                Adding extensions or new features to
+                <a href="https://www.w3.org/TR/r2rml/">R2RML: RDB to RDF Mapping Language</a>
+                or
+                <a href="https://www.w3.org/TR/rdb-direct-mapping/">A Direct Mapping of Relational Data to RDF</a>.
+                These two recommendations will remain stable, without incorporating new features
+                or deprecating any of the existing ones.
+              </li>
             </ul>
         </section>
 
@@ -195,14 +206,11 @@
           <dl>
             <dt id="rml-core" class="spec">RML-Core: RDF Mapping Language - Core </dt>
             <dd>
-              <p>This specification defines the principal characteristics of the language, generalizing and refining R2RML; the rest of specifications build on top of it.
-                RML-Core consists of almost the same concepts as the R2RML, but redefines them to distinguish them from the R2RML counterparts. It also incoporates new features missing
-                in R2RML such the dynamic generation of language tags or datatypes. In case RDF 1.2 becomes a W3C Recommendation and standardize the use of triple
-                terms (i.e., RDF triples used as objects in other triples), RML-Core will ensure full compliance with RDF 1.2.</p>
+              <p>This specification defines the principal characteristics of the language, generalizing and refining R2RML; the rest of specifications build on top of it. RML-Core consists of almost the same concepts as the R2RML, but redefines them to distinguish them from the R2RML counterparts. It also incorporates new features missing in R2RML such as the dynamic generation of language tags or datatypes. RML-Core will use the RML-Star Final Community Group Report as a starting point for defining mappings that generate triple terms. The Working Group will coordinate with the RDF & SPARQL Working Group to align this work with RDF 1.2 Concepts and Abstract Data Model. If RDF 1.2 Concepts has reached W3C Recommendation in time for RML-Core to complete its review and implementation requirements, the first RML-Core Recommendation will include support for generating triple terms. Otherwise, the Working Group may defer that support to a future revision of RML-Core.</p>
 
               <p class="draft-status"><b>Draft state:</b> <a href="https://www.w3.org/community/kg-construct/">Adopted from Knowledge Graph Construction CG</a>
-              <p class="milestone"><b>Expected completion:</b> <i class="todo">WG-START + 12 months</i></p>
-              <p><b>Adopted Draft:</b> <a href="http://w3id.org/rml/core/spec">RML-Core</a>, Final Community Group Report (2026-03-16) / <a href="w3id.org/rml/star/spec">RML-Star</a>, Final Community Group Report (2023-05-10)
+              <p class="milestone"><b>Expected completion:</b> <i class="todo">WG-START + 14 months</i></p>
+              <p><b>Adopted Draft:</b> <a href="http://w3id.org/rml/core/spec">RML-Core</a>, Final Community Group Report (2026-03-16) / <a href="https://w3id.org/rml/star/spec">RML-Star</a>, Final Community Group Report (2023-05-10)
               
               <!--<p class="todo">Per <a href="https://www.w3.org/Consortium/Process/#WGCharter">5.2.6</a>, for every Recommendation Track deliverable that continues work on a Working Draft (WD) published under any other Charter (including a predecessor group of the same name), for which there is an existing <a href='https://www.w3.org/Consortium/Process/#exclusion-draft'>Exclusion Draft</a>: </p>-->
                 <!--The <span class="todo">title, stable URL, and publication date of the <a href="https://www.w3.org/Consortium/Process/#adopted-draft">Adopted Draft</a></span> which will serve as the basis for work on the deliverable.-->
@@ -215,7 +223,7 @@
             <dd>
               <p>This specification defines how input data sources are described and accessed, how their contents are interpreted through reference formulations, and how iteration patterns are applied to traverse them. In addition, it specifies how the output writer can be declared, enabling the consistent description of both the sources from which data is retrieved and the destinations to which RDF is generated.</p>
               <p class="draft-status"><b>Draft state:</b> <a href="https://www.w3.org/community/kg-construct/">Adopted from Knowledge Graph Construction CG</a>
-              <p class="milestone"><b>Expected completion:</b> <i class="todo">WG-START + 18 months</i></p>
+              <p class="milestone"><b>Expected completion:</b> <i class="todo">WG-START + 24 months</i></p>
               <p><b>Adopted Draft:</b> <a href="http://w3id.org/rml/io/spec">RML-IO</a>, Final Community Group Report (2026-03-16)
                   
               <!--<p class="todo">Per <a href="https://www.w3.org/Consortium/Process/#WGCharter">5.2.6</a>, for every Recommendation Track deliverable that continues work on a Working Draft (WD) published under any other Charter (including a predecessor group of the same name), for which there is an existing <a href='https://www.w3.org/Consortium/Process/#exclusion-draft'>Exclusion Draft</a>: </p>
@@ -311,14 +319,23 @@
 
         <section id="timeline">
           <h3>Timeline</h3>
-            <ul>
-              <li><i class="todo">WG-START + 1 MONTH</i>: First teleconference</li>
-              <li><i class="todo">WG-START + 7 MONTH</i>: FPWD of all deliverables</li>
-              <li><i class="todo">WG-START + 10 MONTH</i>: Candidate Recomendation of RML-core deliverable</li>
-              <li><i class="todo">WG-START + 12 MONTH</i>: Recomendation of RML-core deliverable</li>
-              <li><i class="todo">WG-START + 18 MONTH</i>: Candidate Recomendation of RML-IO/CC/LV/FNML deliverables</li>
-              <li><i class="todo">WG-START + 24 MONTH</i>: Recomendation of RML-IO/CC/LV/FNML deliverables</li>
-            </ul>
+          <ul>
+            <li><i class="todo">WG-START + 1 MONTH</i>: First teleconference</li>
+            <li>
+              <i class="todo">WG-START + 7 MONTHS</i>:
+              First Public Working Drafts of RML-Core, RML-IO, RML-FNML, RML-CC, and RML-LV
+            </li>
+            <li><i class="todo">WG-START + 12 MONTHS</i>: Candidate Recommendation of RML-Core</li>
+            <li><i class="todo">WG-START + 14 MONTHS</i>: Recommendation of RML-Core</li>
+            <li>
+              <i class="todo">WG-START + 18 MONTHS</i>:
+              Candidate Recommendations of RML-IO, RML-FNML, RML-CC, and RML-LV
+            </li>
+            <li>
+              <i class="todo">WG-START + 24 MONTHS</i>:
+              Recommendations of RML-IO, RML-FNML, RML-CC, and RML-LV
+            </li>
+          </ul>
         </section>
       </section>
 
@@ -350,8 +367,7 @@ test suite of every feature defined in the specification.</p>
     <p>This group is expected to be guided by the following documents:</p>
     <ul>
       <li><a href="https://www.w3.org/TR/ethical-web-principles/">Ethical Web Principles</a>,</li>
-      <li><a href="https://www.w3.org/TR/privacy-principles/">Privacy Principles</a>,</li>
-      <li><a href="https://www.w3.org/TR/design-principles/">Web Platform Design Principles</a>.</li>
+      <li><a href="https://www.w3.org/TR/privacy-principles/">Privacy Principles</a>.</li>
     </ul>
 	  
 	</section>
